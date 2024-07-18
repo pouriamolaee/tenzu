@@ -1,21 +1,21 @@
 "use client";
 import { sans } from "./fonts";
 import { usePathname } from "next/navigation";
-import NextLink from "next/link";
 import { type CSSProperties } from "react";
 import { cn } from "@/utils/cn";
+import SPALink from "@/app/SPALink";
 
 export default function HomeLink() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
 
   return (
-    <NextLink
+    <SPALink
       href="/"
       className={cn(
         sans.className,
         "inline-block text-2xl font-black",
-        isHomePage ? "" : "hover:scale-[1.02]",
+        !isHomePage && "hover:scale-[1.02]",
       )}
     >
       <span
@@ -34,6 +34,6 @@ export default function HomeLink() {
       >
         overreacted
       </span>
-    </NextLink>
+    </SPALink>
   );
 }
