@@ -3,31 +3,50 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --text: #222;
+  --title: #222;
+  --bg: white;
+  --link: #d23669;
+  --pink: lab(63 59.32 -1.47);
+  --purple: lab(33 42.09 -43.19);
 }
-
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --text: rgba(255, 255, 255, 0.88);
+    --title: white;
+    --bg: rgb(40, 44, 53);
+    --link: #ffa7c4;
+    --pink: lab(81 32.36 -7.02);
+    --purple: lab(78 19.97 -36.75);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@property --myColor1 {
+  syntax: "<color>";
+  initial-value: #222;
+  inherits: false;
+}
+@property --myColor2 {
+  syntax: "<color>";
+  initial-value: #222;
+  inherits: false;
+}
+@media (prefers-color-scheme: dark) {
+  @property --myColor1 {
+    syntax: "<color>";
+    initial-value: #ffffffE0;
+    inherits: false;
+  }
+  @property --myColor2 {
+    syntax: "<color>";
+    initial-value: #ffffffE0;
+    inherits: false;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@media (prefers-color-scheme: dark) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }

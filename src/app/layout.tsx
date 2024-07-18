@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { type ReactNode } from "react";
 import { ThemeStoreProvider } from "@/providers/theme-store-provider";
-
-const inter = Inter({ subsets: ["latin"] });
+import { serif } from "@/app/fonts";
 
 export const metadata: Metadata = {
   title: "TenzuMusic",
@@ -17,9 +15,11 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <ThemeStoreProvider>{children}</ThemeStoreProvider>
+    <html lang="en" className={serif.className}>
+      <body className="mx-auto max-w-2xl px-5 py-12 bg-[--bg]">
+        <ThemeStoreProvider>
+          <main>{children}</main>
+        </ThemeStoreProvider>
       </body>
     </html>
   );
