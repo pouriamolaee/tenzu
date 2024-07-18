@@ -11,6 +11,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "@tabler/icons-react": "^3.11.0",
     "colorjs.io": "^0.5.2",
     "next": "14.2.5",
     "react": "^18",

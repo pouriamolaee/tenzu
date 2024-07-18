@@ -10,8 +10,8 @@
   --pink: lab(63 59.32 -1.47);
   --purple: lab(33 42.09 -43.19);
 }
-@media (prefers-color-scheme: dark) {
-  :root {
+.dark {
+  &:root {
     --text: #ffffffE0;
     --title: white;
     --bg: rgb(40, 44, 53);
@@ -31,7 +31,7 @@
   initial-value: #222;
   inherits: false;
 }
-@media (prefers-color-scheme: dark) {
+.dark {
   @property --myColor1 {
     syntax: "<color>";
     initial-value: #ffffffE0;
@@ -44,7 +44,7 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
