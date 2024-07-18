@@ -18,7 +18,7 @@ export const defaultInitState: ThemeState = {
   theme: "dark",
 };
 
-export const createThemeStore = (initState: ThemeState = defaultInitState) => {
+export function createThemeStore(initState: ThemeState = defaultInitState) {
   return createStore<ThemeStore>()(
     persist(
       (set) => ({
@@ -34,4 +34,4 @@ export const createThemeStore = (initState: ThemeState = defaultInitState) => {
       },
     ),
   );
-};
+}

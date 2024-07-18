@@ -1,5 +1,4 @@
 "use client";
-
 import { createContext, type ReactNode, useContext, useRef } from "react";
 import { useStore } from "zustand";
 
@@ -15,7 +14,7 @@ export interface ThemeStoreProviderProps {
   children: ReactNode;
 }
 
-export const ThemeStoreProvider = ({ children }: ThemeStoreProviderProps) => {
+export function ThemeStoreProvider({ children }: ThemeStoreProviderProps) {
   const storeRef = useRef<ThemeStoreApi>();
   if (!storeRef.current) {
     storeRef.current = createThemeStore();
@@ -26,9 +25,9 @@ export const ThemeStoreProvider = ({ children }: ThemeStoreProviderProps) => {
       {children}
     </ThemeStoreContext.Provider>
   );
-};
+}
 
-export const useThemeStore = <T,>(selector: (store: ThemeStore) => T): T => {
+export function useThemeStore<T>(selector: (store: ThemeStore) => T): T {
   const themeStoreContext = useContext(ThemeStoreContext);
 
   if (!themeStoreContext) {
@@ -36,4 +35,4 @@ export const useThemeStore = <T,>(selector: (store: ThemeStore) => T): T => {
   }
 
   return useStore(themeStoreContext, selector);
-};
+}
