@@ -3,6 +3,8 @@ import "./globals.css";
 import { type ReactNode } from "react";
 import { ThemeStoreProvider } from "@/providers/theme-store-provider";
 import { serif } from "@/app/fonts";
+import NextLink from "next/link";
+import HomeLink from "@/app/HomeLink";
 
 export const metadata: Metadata = {
   title: "TenzuMusic",
@@ -16,8 +18,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={serif.className}>
-      <body className="mx-auto max-w-2xl px-5 py-12 bg-[--bg]">
+      <body className="mx-auto max-w-2xl bg-[--bg] px-5 py-12 text-[--text]">
         <ThemeStoreProvider>
+          <header className="mb-14 flex flex-row place-content-between">
+            <HomeLink />
+            <span className="relative top-[4px] italic">
+              by{" "}
+              <NextLink href="https://danabra.mov" target="_blank">
+                <img
+                  alt="Dan Abramov"
+                  src="https://github.com/gaearon.png"
+                  className="relative -top-1 mx-1 inline h-8 w-8 rounded-full"
+                />
+                {/*  TODO for image */}
+              </NextLink>
+            </span>
+          </header>
           <main>{children}</main>
         </ThemeStoreProvider>
       </body>

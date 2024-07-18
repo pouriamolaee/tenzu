@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --text: #222;
+  --text: ted;
   --title: #222;
   --bg: white;
   --link: #d23669;
@@ -12,7 +12,7 @@
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: rgba(255, 255, 255, 0.88);
+    --text: #ffffffE0;
     --title: white;
     --bg: rgb(40, 44, 53);
     --link: #ffa7c4;
