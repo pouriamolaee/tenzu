@@ -28,6 +28,7 @@ export default async function Home() {
     <div className="relative top-[10px] flex flex-col gap-8">
       {posts.map((post, index) => (
         <SPALink
+          data-test={`post-link-${index}`}
           key={post.id}
           href={"/" + post.id + "/"}
           className="block py-4 hover:scale-[1.005]"
