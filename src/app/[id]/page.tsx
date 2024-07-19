@@ -32,6 +32,7 @@ export default async function PostPage({ params }: PageProps) {
   return (
     <article>
       <h1
+        data-cy="post-title"
         className={cn(
           sans.className,
           "text-[40px] font-black leading-[44px] text-[--title]",
@@ -39,14 +40,19 @@ export default async function PostPage({ params }: PageProps) {
       >
         {title}
       </h1>
-      <p className="mt-2 text-[13px] text-gray-700 dark:text-gray-300">
+      <p
+        data-cy="post-date"
+        className="mt-2 text-[13px] text-gray-700 dark:text-gray-300"
+      >
         {new Date(date).toLocaleDateString("en", {
           day: "numeric",
           month: "long",
           year: "numeric",
         })}
       </p>
-      <div className="mt-10">{body}</div>
+      <div data-cy="post-body" className="mt-10">
+        {body}
+      </div>
     </article>
   );
 }

@@ -29,10 +29,13 @@ export default async function Home() {
   }
 
   return (
-    <div className="relative top-[10px] flex flex-col gap-8">
+    <div
+      data-cy="post-list"
+      className="relative top-[10px] flex flex-col gap-8"
+    >
       {posts.map((post, index) => (
         <InternalLink
-          data-test={`post-link-${index}`}
+          data-cy="post-item"
           key={post.id}
           href={"/" + post.id + "/"}
           className="block py-4 hover:scale-[1.005]"
