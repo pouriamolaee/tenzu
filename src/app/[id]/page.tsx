@@ -1,4 +1,4 @@
-import { generatePostDate } from "@/utils/generate-post-date";
+import { generatePostDate } from "@/utils/post";
 import { sans } from "@/app/fonts";
 import { cn } from "@/utils/cn";
 import type { PostType } from "@/models/post";

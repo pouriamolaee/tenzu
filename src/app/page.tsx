@@ -1,5 +1,5 @@
 import type { PostDisplayType, PostType } from "@/models/post";
-import { generatePostDate } from "@/utils/generate-post-date";
+import { generatePostDate, sortPostsByDate } from "@/utils/post";
 import Post from "@/app/post";
 import InternalLink from "@/app/internal-link";
 import { getPosts } from "@/services/post";
@@ -12,9 +12,7 @@ async function getDisplayPosts() {
       ...post,
     }));
 
-    return displayPosts.sort((a, b) =>
-      Date.parse(a.date) < Date.parse(b.date) ? 1 : -1,
-    );
+    return sortPostsByDate(displayPosts);
   } catch (error) {
     console.log("Unable to fetch, error:", error);
     return null;

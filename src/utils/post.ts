@@ -1,3 +1,5 @@
+import type { PostDisplayType } from "@/models/post";
+
 const FAKE_START_DATA = "2023-03-10";
 
 /**
@@ -16,4 +18,16 @@ export function generatePostDate(
   date.setDate(baseDate.getDate() + (id - 1));
   const [dataPortion] = date.toISOString().split("T");
   return dataPortion;
+}
+
+/**
+ * Sorts an array of posts by their date in descending order.
+ *
+ * @param {PostDisplayType[]} posts - An array of posts to be sorted.
+ * @returns {PostDisplayType[]} The sorted array of posts.
+ */
+export function sortPostsByDate(posts: PostDisplayType[]): PostDisplayType[] {
+  return posts.sort((a, b) =>
+    Date.parse(a.date) < Date.parse(b.date) ? 1 : -1,
+  );
 }
