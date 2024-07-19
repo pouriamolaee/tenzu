@@ -34,7 +34,7 @@ Before you begin, ensure you have met the following requirements:
 2. Install dependencies using pnpm:
 
 ```
-    pnpm install
+pnpm install
 ```
 
 ## Development
@@ -42,7 +42,7 @@ Before you begin, ensure you have met the following requirements:
 To start the development server, run:
 
 ```
-    pnpm dev
+pnpm dev
 ```
 
 ## Building
@@ -50,7 +50,7 @@ To start the development server, run:
 To create an optimized production build, run:
 
 ```
-    pnpm build
+pnpm build
 ```
 
 ## Starting
@@ -58,7 +58,7 @@ To create an optimized production build, run:
 To start the application in production mode after building, run:
 
 ```
-    pnpm start
+pnpm start
 ```
 
 ## Linting
@@ -66,7 +66,7 @@ To start the application in production mode after building, run:
 To run ESLint to check for code quality issues, run:
 
 ```
-    pnpm lint
+pnpm lint
 ```
 
 ## Testing
@@ -74,12 +74,12 @@ To run ESLint to check for code quality issues, run:
 To run the Jest tests, use:
 
 ```
-    pnpm test
+pnpm test
 ```
 To run Jest in watch mode, use:
 
 ```
-    pnpm test:watch
+pnpm test:watch
 ```
 
 ## Cypress
@@ -87,7 +87,7 @@ To run Jest in watch mode, use:
 To open the Cypress test runner, run:
 
 ```
-    pnpm cypress:open
+pnpm cypress:open
 ```
 
 ## Dependencies
