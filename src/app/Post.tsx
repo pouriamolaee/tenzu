@@ -3,12 +3,9 @@ import { sans } from "@/app/fonts";
 import Color from "colorjs.io";
 import { type CSSProperties } from "react";
 
-export default function Post({
-  title,
-  date,
-  body,
-  staleness,
-}: PostInterface & { staleness: number }) {
+type PostProps = PostInterface & { staleness: number };
+
+export default function Post({ title, date, body, staleness }: PostProps) {
   return (
     <article>
       <PostTitle title={title} staleness={staleness} />

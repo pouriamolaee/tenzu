@@ -1,27 +1,35 @@
-import type { EntryInterface } from "@/models";
+import type { EntryInterface, PostInterface } from "@/models";
 import { generateDateFromID } from "@/utils/data-generator";
 import { FAKE_START_DATA } from "@/constants";
 import { sans } from "@/app/fonts";
 import { cn } from "@/utils/cn";
 
-export async function getPost(id: number) {
-  const entry: EntryInterface = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${id}`, // Add these to env
-  )
-    .then((res) => res.json())
-    .catch(console.log);
-  // Some case of error handling
+async function getPost(id: string) {
+  try {
+    const entry: EntryInterface = await fetch(
+      `https://jsonplaceholder.typicode.com/posts/${id}`, // Add these to env
+    ).then((res) => res.json()); // Remove this then
 
-  return {
-    date: generateDateFromID(entry.id, FAKE_START_DATA),
-    ...entry,
-  };
+    return {
+      date: generateDateFromID(entry.id, FAKE_START_DATA),
+      ...entry,
+    };
+  } catch (error) {
+    console.error("Error fetching post:", error);
+    return null; // Return null in case of error
+  }
 }
 
 type PageProps = { params: { id: string } };
 
 export default async function PostPage({ params }: PageProps) {
-  const { title, date, body } = await getPost(+params.id);
+  const post = await getPost(params.id);
+
+  if (!post) {
+    return <p>Post not found</p>;
+  }
+
+  const { title, date, body } = post;
 
   return (
     <article>
@@ -46,11 +54,20 @@ export default async function PostPage({ params }: PageProps) {
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  const { title, body } = await getPost(+params.id);
-  return {
-    title: title + " — overreacted",
-    description: body,
-  };
+  try {
+    const { title, body } = (await getPost(params.id)) as PostInterface;
+
+    return {
+      title: title + " — overreacted",
+      description: body,
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      title: "Not found",
+      description: "",
+    };
+  }
 }
 
 export async function generateStaticParams() {

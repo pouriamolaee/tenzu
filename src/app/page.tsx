@@ -4,7 +4,7 @@ import Post from "@/app/Post";
 import { FAKE_START_DATA } from "@/constants";
 import SPALink from "@/app/SPALink";
 
-export async function getPosts() {
+async function getPosts() {
   const entries: EntryInterface[] =
     (await fetch("https://jsonplaceholder.typicode.com/posts")
       .then((res) => res.json())
