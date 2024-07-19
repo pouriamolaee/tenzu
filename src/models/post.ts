@@ -1,5 +1,10 @@
-import { EntryInterface } from "@/models";
+export type PostType = {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+};
 
-export interface PostInterface extends EntryInterface {
+export type PostDisplayType = PostType & {
   date: string;
-}
+};

@@ -1,3 +1,5 @@
+const FAKE_START_DATA = "2023-03-10";
+
 /**
  * Generates a date string in YYYY-MM-DD format based on an ID and a start date.
  *
@@ -5,7 +7,10 @@
  * @param {string} startDate - The start date in YYYY-MM-DD format.
  * @returns {string} - The generated date in YYYY-MM-DD format.
  */
-export function generateDateFromID(id: number, startDate: string): string {
+export function generatePostDate(
+  id: number,
+  startDate: string = FAKE_START_DATA,
+): string {
   const baseDate = new Date(startDate);
   const date = new Date(baseDate);
   date.setDate(baseDate.getDate() + (id - 1));

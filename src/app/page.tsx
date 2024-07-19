@@ -1,40 +1,44 @@
-import type { EntryInterface, PostInterface } from "@/models";
-import { generateDateFromID } from "@/utils/data-generator";
-import Post from "@/app/Post";
-import { FAKE_START_DATA } from "@/constants";
-import SPALink from "@/app/SPALink";
+import type { PostDisplayType, PostType } from "@/models/post";
+import { generatePostDate } from "@/utils/generate-post-date";
+import Post from "@/app/post";
+import InternalLink from "@/app/internal-link";
+import { getPosts } from "@/services/post";
 
-async function getPosts() {
-  const entries: EntryInterface[] =
-    (await fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((res) => res.json())
-      .catch(console.log)) || []; // TODO: Duplicate
+async function getDisplayPosts() {
+  try {
+    const posts: PostType[] = await getPosts();
+    const displayPosts: PostDisplayType[] = posts.map((post) => ({
+      date: generatePostDate(post.id),
+      ...post,
+    }));
 
-  return entries
-    .map((entry) => ({
-      date: generateDateFromID(entry.id, FAKE_START_DATA),
-      ...entry,
-    }))
-    .sort((a: PostInterface, b: PostInterface) =>
+    return displayPosts.sort((a, b) =>
       Date.parse(a.date) < Date.parse(b.date) ? 1 : -1,
-    ); // Handle cache strategy
+    );
+  } catch (error) {
+    console.log("Unable to fetch, error:", error);
+    return null;
+  }
 }
 
 export default async function Home() {
-  const posts = await getPosts();
-  const postsCount = posts.length;
+  const posts = await getDisplayPosts();
+
+  if (!posts) {
+    return "Unable to fetch posts :(";
+  }
 
   return (
     <div className="relative top-[10px] flex flex-col gap-8">
       {posts.map((post, index) => (
-        <SPALink
+        <InternalLink
           data-test={`post-link-${index}`}
           key={post.id}
           href={"/" + post.id + "/"}
           className="block py-4 hover:scale-[1.005]"
         >
-          <Post {...post} staleness={index / postsCount} />
-        </SPALink>
+          <Post {...post} staleness={index / posts.length} />
+        </InternalLink>
       ))}
     </div>
   );

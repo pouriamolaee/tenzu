@@ -14,7 +14,7 @@ export interface ThemeStoreProviderProps {
   children: ReactNode;
 }
 
-export function ThemeStoreProvider({ children }: ThemeStoreProviderProps) {
+export function ThemeProvider({ children }: ThemeStoreProviderProps) {
   const storeRef = useRef<ThemeStoreApi>();
   if (!storeRef.current) {
     storeRef.current = createThemeStore();

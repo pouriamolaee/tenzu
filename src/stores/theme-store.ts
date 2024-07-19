@@ -9,7 +9,6 @@ export type ThemeState = {
 
 export type ThemeActions = {
   toggleTheme: () => void;
-  setTheme: (theme: Theme) => void;
 };
 
 export type ThemeStore = ThemeState & ThemeActions;
@@ -27,7 +26,6 @@ export function createThemeStore(initState: ThemeState = defaultInitState) {
           set((state) => ({
             theme: state.theme === "light" ? "dark" : "light",
           })),
-        setTheme: (theme) => set({ theme }),
       }),
       {
         name: "theme-storage",

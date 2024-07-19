@@ -3,14 +3,14 @@ import { sans } from "./fonts";
 import { usePathname } from "next/navigation";
 import { type CSSProperties } from "react";
 import { cn } from "@/utils/cn";
-import SPALink from "@/app/SPALink";
+import InternalLink from "@/app/internal-link";
 
 export default function HomeLink() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
 
   return (
-    <SPALink
+    <InternalLink
       href="/"
       className={cn(
         sans.className,
@@ -34,6 +34,6 @@ export default function HomeLink() {
       >
         overreacted
       </span>
-    </SPALink>
+    </InternalLink>
   );
 }
