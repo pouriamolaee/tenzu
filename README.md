@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Tenzu
 
-## Getting Started
+## Table of Contents
 
-First, run the development server:
+- [Introduction](#introduction)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Development](#development)
+- [Building](#building)
+- [Starting](#starting)
+- [Linting](#linting)
+- [Testing](#testing)
+- [Cypress](#cypress)
+- [Dependencies](#dependencies)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Introduction
+
+Tenzu is a Next.js project with support for Jest testing, Cypress end-to-end testing, TypeScript, TailwindCSS, and more. This README provides instructions on how to set up and run the project.
+
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- Node.js v16 or later
+- pnpm package manager
+
+## Installation
+
+1. Clone the repository:
+```
+    git clone https://github.com/pouriamolaee/tenzu.git
+    cd tenzu
+```
+2. Install dependencies using pnpm:
+
+```
+    pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To start the development server, run:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
+    pnpm dev
+```
 
-## Learn More
+## Building
 
-To learn more about Next.js, take a look at the following resources:
+To create an optimized production build, run:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+    pnpm build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Starting
 
-## Deploy on Vercel
+To start the application in production mode after building, run:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+    pnpm start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Linting
+
+To run ESLint to check for code quality issues, run:
+
+```
+    pnpm lint
+```
+
+## Testing
+
+To run the Jest tests, use:
+
+```
+    pnpm test
+```
+To run Jest in watch mode, use:
+
+```
+    pnpm test:watch
+```
+
+## Cypress
+
+To open the Cypress test runner, run:
+
+```
+    pnpm cypress:open
+```
+
+## Dependencies
+
+### Core Dependencies
+
+- [Next.js](https://nextjs.org) - The React Framework
+- [React](https://reactjs.org) - A JavaScript library for building user interfaces
+- [ReactDOM](https://reactjs.org/docs/react-dom.html) - Serves as the entry point to the DOM and server renderers for React
+- [Zustand](https://github.com/pmndrs/zustand) - A small, fast and scalable bearbones state-management solution using simplified flux principles
+
+### Developer Dependencies
+
+- [TypeScript](https://www.typescriptlang.org) - A typed superset of JavaScript that compiles to plain JavaScript
+- [Jest](https://jestjs.io) - A delightful JavaScript Testing Framework with a focus on simplicity
+- [Testing Library](https://testing-library.com) - Simple and complete testing utilities that encourage good testing practices
+- [Cypress](https://www.cypress.io) - Fast, easy and reliable testing for anything that runs in a browser
+- [ESLint](https://eslint.org) - A pluggable linting utility for JavaScript and JSX
+- [Prettier](https://prettier.io) - An opinionated code formatter
+- [TailwindCSS](https://tailwindcss.com) - A utility-first CSS framework for rapid UI development
+
+### Utilities
+
+- [clsx](https://github.com/lukeed/clsx) - A tiny utility for constructing `className` strings conditionally
+- [colorjs.io](https://colorjs.io) - A modern color library for JavaScript
+- [Tabler Icons](https://tabler-icons.io) - A set of over 1,600 free MIT-licensed high-quality SVG icons for you to use in your web projects.
