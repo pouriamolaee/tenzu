@@ -28,8 +28,8 @@ Before you begin, ensure you have met the following requirements:
 
 1. Clone the repository:
 ```
-    git clone https://github.com/pouriamolaee/tenzu.git
-    cd tenzu
+git clone https://github.com/pouriamolaee/tenzu.git
+cd tenzu
 ```
 2. Install dependencies using pnpm:
 
